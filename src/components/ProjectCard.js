@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { TechChips, ChipsContainer } from './TechChips'
 
 
 const CardContainer = styled.a`
@@ -42,18 +43,7 @@ const CardText = styled.p`
   line-height: 32px;
   font-family: 'Roboto';
 `
-const ChipsContainer = styled.div`
-  display: flex;
-`
-const TechChips = styled.p`
-  display: inline;
-  padding: 3px 8px;
-  color: #2B2E34;
-  background: #FDDFE7;
-  margin-right: 5px;
-  font-size: 12px;
-  font-family: 'Roboto';
-`
+
 
 export const ProjectCard = ({ image, header, description, slug, tech }) => {
 

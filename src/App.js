@@ -10,11 +10,11 @@ export const App = () => {
       <Header />
       <Section backgroundColor="#F4F4F4" textBody={AboutMe} />
       <Section backgroundColor="white" titleText="TECH" textBody={TechList} />
-      <Section backgroundColor="#F4F4F4" titleText="FEATURED PROJECTS" subTitle="OTHER PROJECTS" projectCard="true" />
-      <Section backgroundColor="white" titleText="MY THOUGHTS" subTitle="OTHER THOUGHTS" />
+      <Section backgroundColor="#F4F4F4" titleText="FEATURED PROJECTS" />
+      <Section backgroundColor="white" titleText="MY THOUGHTS" />
       <Section backgroundColor="#F4F4F4" titleText="SKILLS" />
       <Section backgroundColor="white" titleText="FOR MORE" />
-      <Section backgroundColor="blue" />
+      <Section backgroundColor="#133bce" />
     </div>
   )
 }

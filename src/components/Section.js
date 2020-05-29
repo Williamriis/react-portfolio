@@ -1,14 +1,21 @@
 import React from 'react'
 import styled from 'styled-components'
-import { ProjectCard } from './ProjectCard'
 import { Projects } from './Projects'
+import { Thoughts } from './Thoughts'
+import { Skills } from './Skills'
+import { ForMore } from './ForMore'
+import { Contact } from './Contact'
+
 
 const SectionContainer = styled.div`
-  padding: 50px 140px;
+  padding: 50px 36px;
   background-color: ${props => props.backgroundColor};
   display: flex;
   flex-direction: column;
   align-items: center;
+  @media (min-width: 768px) {
+    padding: 50px 140px
+  }
 `
 
 const Title = styled.h1`
@@ -28,26 +35,19 @@ font: 20px/32px 'Montserrat';
   margin: 0;
 `
 
-const CardDeck = styled.div`
-  display: flex;
- justify-content: space-between;
-  width: 100%;
-  flex-wrap: wrap;
- 
 
-`
+
 
 export const Section = ({ backgroundColor, titleText, subTitle, textBody, projectCard }) => {
-    return (
-        <SectionContainer backgroundColor={backgroundColor}>
-            {titleText && <Title color="white">{titleText}</Title>}
-            {textBody && <TextBlock>{textBody}</TextBlock>}
-            {projectCard && <CardDeck>
-                {Projects.map((project) => {
-                    return <ProjectCard image={project.image} description={project.description} header={project.title} slug={project.slug} tech={project.tech} />
-                })}
-            </CardDeck>}
-            {subTitle && <Title color="red">{subTitle}</Title>}
-        </SectionContainer>
-    )
+  return (
+    <SectionContainer backgroundColor={backgroundColor}>
+      {titleText && <Title color="white">{titleText}</Title>}
+      {textBody && <TextBlock>{textBody}</TextBlock>}
+      {titleText === "FEATURED PROJECTS" && <Projects />}
+      {titleText === "MY THOUGHTS" && <Thoughts />}
+      {titleText === "SKILLS" && <Skills />}
+      {titleText === "FOR MORE" && <ForMore />}
+      {backgroundColor === "#133bce" && <Contact />}
+    </SectionContainer >
+  )
 }
