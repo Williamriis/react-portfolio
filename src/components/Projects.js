@@ -8,12 +8,17 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
 `
 const CardDeck = styled.div`
   display: flex;
  justify-content: space-between;
+ align-items: center;
   width: 100%;
   flex-wrap: wrap;
+  @media (max-width: 760px){
+    flex-direction: column;
+  }
 `
 const SubHeader = styled.h1`
    display: inline-block;
@@ -31,43 +36,55 @@ const OtherProjectsContainer = styled.div`
   flex-direction: column;
   align-items: flex-start;
 `
-const OtherProjectsText = styled.a`
+const OtherProjectsText = styled.p`
   font-family: 'Roboto';
   text-decoration: underline;
   font-size: 17px;
   line-height: 32px;
   margin-bottom: 15px;
+  
 `
 
-const BoldRed = styled.span`
+const MediaQueryWrapper = styled.div`
+@media (min-width: 760px) {
+  display: ${props => props.display}
+}
+`
+
+const BoldRed = styled.a`
   font-weight: bold;
   color: red;
   text-decoration: underline;
 `
 export const Projects = () => {
 
-    return (
-        <Container>
-            <CardDeck>
-                {MyProjects.map((project) => {
-                    return <ProjectCard image={project.image} description={project.description} header={project.title} slug={project.slug} tech={project.tech} />
+  return (
+    <Container>
+      <CardDeck>
+        {MyProjects.map((project, index) => {
+          return <ProjectCard image={project.image} description={project.description}
+            header={project.title} slug={project.slug} tech={project.tech} url={project.url}
+            display={index > 1 ? 'none' : 'flex'} />
+        })}
+      </CardDeck>
+      <SubHeader>OTHER PROJECTS</SubHeader>
+      <OtherProjectsContainer>
+        {OtherProjects.map((item, index) => {
+          return (
+            <MediaQueryWrapper display={index < 2 ? 'none' : 'block'}>
+              <OtherProjectsText>
+                <BoldRed> {item.slug}</BoldRed> {item.description} <BoldRed href={item.url}
+                  target="_blank" rel="noopener noreferrer">>></BoldRed>
+              </OtherProjectsText>
+              <ChipsContainer>
+                {item.tech.map((label) => {
+                  return <TechChips>{label}</TechChips>
                 })}
-            </CardDeck>
-            <SubHeader>OTHER PROJECTS</SubHeader>
-            <OtherProjectsContainer>
-                {OtherProjects.map((item) => {
-                    return (
-                        <>
-                            <OtherProjectsText><BoldRed> {item.slug}</BoldRed> {item.description} <BoldRed>>></BoldRed> </OtherProjectsText>
-                            <ChipsContainer>
-                                {item.tech.map((label) => {
-                                    return <TechChips>{label}</TechChips>
-                                })}
-                            </ChipsContainer>
-                        </>
-                    )
-                })}
-            </OtherProjectsContainer>
-        </Container>
-    )
+              </ChipsContainer>
+            </MediaQueryWrapper>
+          )
+        })}
+      </OtherProjectsContainer>
+    </Container>
+  )
 }

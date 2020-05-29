@@ -19,13 +19,13 @@ const Figure = styled.figure`
 }
 `
 const Vector = styled.a`
-  border: 3px solid red;
+  border: 3px solid #fa382f;
   border-radius: 50%;
   padding: 12px 14px;
 `
 const Caption = styled.figcaption`
 font: bold 11px 'Roboto';
-color: red;
+color: #fa382f;
 margin-top: 5px;
 `
 
@@ -37,22 +37,23 @@ export const ForMore = () => {
 
         <Container>
             <Figure>
-                <Vector>
+                <Vector href="https://www.linkedin.com/in/william-jensen-94521919a/" target="_blank"
+                    rel="noopener noreferrer">
                     <LinkedIn />
                 </Vector>
                 <Caption>LINKEDIN</Caption>
             </Figure>
             <Figure>
-                <Vector>
+                <Vector href="https://github.com/Williamriis" target="_blank" rel="noopener noreferrer">
                     <GitHub />
                 </Vector>
-                <Caption>LINKEDIN</Caption>
+                <Caption>GITHUB</Caption>
             </Figure>
             <Figure>
-                <Vector>
+                <Vector href="https://stackoverflow.com/users/12671093/william" target="_blank" rel="noopener noreferrer">
                     <Stack />
                 </Vector>
-                <Caption>LINKEDIN</Caption>
+                <Caption>STACK OVERFLOW</Caption>
             </Figure>
 
         </Container>

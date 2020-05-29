@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { ReactComponent as GitHub } from '../github.svg';
 import { ReactComponent as LinkedIn } from '../linkedin.svg';
 import { ReactComponent as Stack } from '../stack.svg';
+import image from '../bookshelf.jpeg'
 
 const HeaderContainer = styled.div`
   width: 100%;
@@ -12,8 +13,12 @@ const HeaderContainer = styled.div`
   flex-direction: column;
   align-items:  flex-end;
   justify-content: space-between;
-  background-color: grey;
+  background: linear-gradient(to bottom, black, transparent), url(${image});
   padding: 60px 140px 0 140px;
+  @media (max-width: 760px){
+    padding: 60px 36px 0 36px;
+    height: 508px;
+  }
 `
 
 const TextContainer = styled.div`
@@ -31,6 +36,9 @@ const HeaderText = styled.p`
   font-weight: bold;
   font-family: ${props => props.font};
   margin: 0;
+  @media (max-width: 760px){
+    font-size: ${props => props.mobileSize}
+  }
 `
 const VectorContainer = styled.div`
   display: flex;
@@ -51,24 +59,31 @@ const ProfileImage = styled.img`
   width: 200px;
   position: relative;
   top: -110px;
+  @media (max-width: 760px){
+    width: 172px;
+    top: 15px;
+  }
 `
 
 export const Header = () => {
 
 
-    return (
-        <HeaderContainer>
-            <VectorContainer>
-                <HeaderVector href="https://www.linkedin.com/in/william-jensen-94521919a/" target="_blank"><LinkedIn /></HeaderVector>
-                <HeaderVector href="https://github.com/Williamriis" target="_blank"><GitHub /></HeaderVector>
-                <HeaderVector><Stack /></HeaderVector>
-            </VectorContainer>
-            <TextContainer>
-                <HeaderText size="16px" font="Roboto"><span style={{ fontWeight: "normal" }}>PORTFOLIO:</span>  WILLIAM JENSEN</HeaderText>
-                <HeaderText size="46px" font="Montserrat">frontend <br></br>developer</HeaderText>
-                <HeaderText size="29px" font="Montserrat">+ bookworm</HeaderText>
-            </TextContainer>
-            <ProfileImage src={require('../profile.jpg')} />
-        </HeaderContainer>
-    )
+  return (
+    <HeaderContainer>
+      <VectorContainer>
+        <HeaderVector href="https://www.linkedin.com/in/william-jensen-94521919a/"
+          target="_blank" rel="noopener noreferrer"><LinkedIn /></HeaderVector>
+        <HeaderVector href="https://github.com/Williamriis" target="_blank"
+          rel="noopener noreferrer"><GitHub /></HeaderVector>
+        <HeaderVector href="https://stackoverflow.com/users/12671093/william"
+          target="_blank" rel="noopener noreferrer"><Stack /></HeaderVector>
+      </VectorContainer>
+      <TextContainer>
+        <HeaderText size="16px" font="Roboto"><span style={{ fontWeight: "normal" }}>PORTFOLIO:</span>  WILLIAM JENSEN</HeaderText>
+        <HeaderText size="46px" mobileSize="40px" font="Montserrat">frontend <br></br>developer</HeaderText>
+        <HeaderText size="29px" font="Montserrat">+ bookworm</HeaderText>
+      </TextContainer>
+      <ProfileImage src={require('../profile.jpg')} />
+    </HeaderContainer>
+  )
 }

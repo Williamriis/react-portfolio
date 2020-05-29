@@ -1,5 +1,7 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faHandPointRight } from '@fortawesome/free-solid-svg-icons'
 import { Projects } from './Projects'
 import { Thoughts } from './Thoughts'
 import { Skills } from './Skills'
@@ -31,18 +33,33 @@ const Title = styled.h1`
 `
 
 const TextBlock = styled.p`
-font: 20px/32px 'Montserrat';
+  font: 20px/32px 'Montserrat';
   margin: 0;
+
+`
+const Point = keyframes`
+0% {left: -8px};
+50% {left: -3px};
+100% {left: -8px};
 `
 
+const Hand = styled.span`
+  color: red;
+  font-size: 24px;
+  position: relative;
+  left: -8px;
+  top: 4px;
+  animation: ${Point} .5s infinite ease-in;
+`
+
+const Icon = <FontAwesomeIcon className="hand" icon={faHandPointRight} />
 
 
-
-export const Section = ({ backgroundColor, titleText, subTitle, textBody, projectCard }) => {
+export const Section = ({ backgroundColor, titleText, textBody, icon }) => {
   return (
     <SectionContainer backgroundColor={backgroundColor}>
       {titleText && <Title color="white">{titleText}</Title>}
-      {textBody && <TextBlock>{textBody}</TextBlock>}
+      {textBody && <TextBlock>{icon && <Hand>{Icon}</Hand>}{textBody}</TextBlock>}
       {titleText === "FEATURED PROJECTS" && <Projects />}
       {titleText === "MY THOUGHTS" && <Thoughts />}
       {titleText === "SKILLS" && <Skills />}

@@ -33,6 +33,10 @@ const Date = styled.span`
 const Title = styled.p`
   text-decoration: underline;
   font-weight: bold;
+  align-self: flex-start;
+  @media (min-width: 760px) {
+    display: ${props => props.display};
+  }
 `
 const Link = styled.a`
   color: red;
@@ -40,18 +44,19 @@ const Link = styled.a`
 
 export const Thoughts = () => {
 
-    return (
-        <Container>
-            <CardContainer>
-                {MyThoughts.map((item, index) => {
-                    return <ThoughtsCard image={item.image} title={item.title}
-                        date={item.date} description={item.description} display={index % 2 !== 0 ? 'none' : 'block'} />
-                })}
-            </CardContainer>
-            <SubHeader>OTHER THOUGHTS</SubHeader>
-            {OtherThoughts.map((item) => {
-                return <Title><Date>{item.date} </Date>{item.title}<Link> >></Link></Title>
-            })}
-        </Container>
-    )
+  return (
+    <Container>
+      <CardContainer>
+        {MyThoughts.map((item, index) => {
+          return <ThoughtsCard image={item.image} title={item.title} url={item.url}
+            date={item.date} description={item.description} display={index % 2 !== 0 ? 'none' : 'block'} />
+        })}
+      </CardContainer>
+      <SubHeader>OTHER THOUGHTS</SubHeader>
+      {OtherThoughts.map((item, index) => {
+        return <Title display={index === 0 ? 'none' : 'block'}><Date>{item.date} </Date>{item.title}<Link href={item.url}
+          target="_blank" rel="noopener noreferrer"> >></Link></Title>
+      })}
+    </Container>
+  )
 }

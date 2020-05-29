@@ -12,11 +12,13 @@ const ListContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 50%;
+ width: 50%;
+ text-align: center;
 `
 
 const List = styled.ul`
   list-style: none;
+  padding: 0;
 `
 
 const Header = styled.h1`

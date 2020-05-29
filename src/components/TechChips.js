@@ -1,8 +1,7 @@
 import styled from 'styled-components'
 
 export const ChipsContainer = styled.div`
-  display: flex;
-  
+  display: inline-flex;
 `
 export const TechChips = styled.p`
   display: inline;

@@ -7,6 +7,7 @@ const Container = styled.a`
   flex-direction: column;
   width: 40%;
   text-decoration: none;
+  color: black;
   @media (max-width: 760px) {
     display: ${props => props.display};
     width: 100%;
@@ -44,14 +45,14 @@ const RedLink = styled.a`
 `
 
 
-export const ThoughtsCard = ({ image, date, title, description, display }) => {
+export const ThoughtsCard = ({ image, date, title, description, display, url }) => {
 
   return (
-    <Container display={display}>
+    <Container display={display} href={url} target="_blank" rel="noopener noreferrer">
       <Image src={image} />
       <DatePosted>{date}</DatePosted>
       <Headline>{title}</Headline>
-      <TextSample>{description} <RedLink>>></RedLink></TextSample>
+      <TextSample>{description} <RedLink href={url} target="_blank" rel="noopener noreferrer">>></RedLink></TextSample>
     </Container>
   )
 }
