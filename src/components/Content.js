@@ -1,4 +1,4 @@
-
+import React from 'react'
 export const MyProjects = [
     {
         image: require('../projects-movies.jpg'),
@@ -28,7 +28,7 @@ export const MyProjects = [
         image: require('../projects-react-native-memory-app.jpg'),
         title: 'MEMORY GAME',
         description: 'Web app built in React using open film API',
-        slug: 'WEATHER APP',
+        slug: 'MEMORY GAME',
         tech: ['HTML5', 'CSS3', 'React', 'JavaScript ES6'],
         url: ""
     }
@@ -122,3 +122,18 @@ export const MySkills = [
 
 export const AboutMe = "Hello! I’m a creative frontend developer who loves working in JavaScript and React. I have a passion for making fun and interactive apps and websites."
 export const TechList = "HTML, CSS, Flexbox, JavaScript, ES6, JSX, React, React Hooks, Redux, Node.js, Mongo DB, Web Accessibly, API:s, mob-programming, pair-programming, Github."
+
+const thing = < iframe
+    title="React native code"
+    src="https://snack.expo.io/@bardolph/lonely-croissant?platform=ios"
+    style={{
+        overflow: "hidden",
+        background: "#212743",
+        border: "1px solid rgba(0,0,0,.08)",
+        borderRadius: "4px",
+        height: "725px",
+        width: "60%",
+        margin: "auto",
+        marginTop: "20px",
+    }}
+></iframe >

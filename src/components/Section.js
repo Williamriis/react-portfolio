@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled, { keyframes } from 'styled-components'
+import Fade from 'react-reveal/Fade'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHandPointRight } from '@fortawesome/free-solid-svg-icons'
 import { Projects } from './Projects'
@@ -7,6 +8,7 @@ import { Thoughts } from './Thoughts'
 import { Skills } from './Skills'
 import { ForMore } from './ForMore'
 import { Contact } from './Contact'
+import { ReactNative } from './ReactNative'
 
 
 const SectionContainer = styled.div`
@@ -55,16 +57,19 @@ const Hand = styled.span`
 const Icon = <FontAwesomeIcon className="hand" icon={faHandPointRight} />
 
 
-export const Section = ({ backgroundColor, titleText, textBody, icon }) => {
+export const Section = ({ backgroundColor, titleText, textBody, icon, setShow }) => {
+
   return (
-    <SectionContainer backgroundColor={backgroundColor}>
-      {titleText && <Title color="white">{titleText}</Title>}
-      {textBody && <TextBlock>{icon && <Hand>{Icon}</Hand>}{textBody}</TextBlock>}
-      {titleText === "FEATURED PROJECTS" && <Projects />}
-      {titleText === "MY THOUGHTS" && <Thoughts />}
-      {titleText === "SKILLS" && <Skills />}
-      {titleText === "FOR MORE" && <ForMore />}
-      {backgroundColor === "#133bce" && <Contact />}
-    </SectionContainer >
+    <Fade>
+      <SectionContainer backgroundColor={backgroundColor}>
+        {titleText && <Title color="white">{titleText}</Title>}
+        {textBody && <TextBlock>{icon && <Hand>{Icon}</Hand>}{textBody}<button onClick={() => setShow(true)}>Show</button></TextBlock>}
+        {titleText === "FEATURED PROJECTS" && <Projects />}
+        {titleText === "MY THOUGHTS" && <Thoughts />}
+        {titleText === "SKILLS" && <Skills />}
+        {titleText === "FOR MORE" && <ForMore />}
+        {backgroundColor === "#133bce" && <Contact />}
+      </SectionContainer >
+    </Fade>
   )
 }

@@ -59,6 +59,7 @@ const ProfileImage = styled.img`
   width: 200px;
   position: relative;
   top: -110px;
+  z-index: 5;
   @media (max-width: 760px){
     width: 172px;
     top: 15px;

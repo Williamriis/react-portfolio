@@ -5,7 +5,7 @@ import { TechChips, ChipsContainer } from './TechChips'
 const CardContainer = styled.a`
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   position: relative;
   width: 40%;
   text-decoration: none;
@@ -13,6 +13,7 @@ const CardContainer = styled.a`
   @media (max-width: 760px) {
     display: ${props => props.display};
     width: 100%;
+    align-items: center;
   }
 `
 
@@ -25,12 +26,16 @@ const HoverWrapper = styled.div`
   align-items: center;
   justify-content: center;
   margin-bottom: 20px;
+  transition: all .3s ease-in-out;
+  &:hover {
+    transform: scale(.9);
+  }
 `
 const Image = styled.img`
   width: 100%;
   filter: brightness(40%);
 ${HoverWrapper}:hover & {
-    filter: brightness(20%)
+    filter: brightness(20%);
 }
 `
 
@@ -39,6 +44,10 @@ const ImageOverlay = styled.p`
   position: absolute;
   color: #FDDFE7;
   font: bold 20px 'Montserrat';
+  transtiion: all .7s ease-in-out;
+  ${HoverWrapper}:hover & {
+    transform: scale(1.4);
+  }
 `
 
 const CardText = styled.p`
@@ -56,6 +65,7 @@ const CardText = styled.p`
 export const ProjectCard = ({ image, header, description, slug, tech, display, url }) => {
 
   return (
+
     <CardContainer href={url} target="_blank" rel="noopener noreferrer" display={display}>
       <HoverWrapper>
         <Image src={image}></Image>
@@ -69,5 +79,6 @@ export const ProjectCard = ({ image, header, description, slug, tech, display, u
         })}
       </ChipsContainer>
     </CardContainer>
+
   )
 }
