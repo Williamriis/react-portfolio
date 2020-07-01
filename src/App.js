@@ -2,16 +2,17 @@ import React, { useState } from 'react'
 import { Header } from './components/Header'
 import { Section } from './components/Section'
 import { AboutMe, TechList } from './components/Content'
-import { ReactNative } from './components/ReactNative'
+import { MemoryGame } from 'components/ReactNative'
+
 
 export const App = () => {
-  const [show, setShow] = useState(false)
+  const [showRodal, setShowRodal] = useState(false)
   return (
     <div>
       <Header />
-      <ReactNative show={show} setShow={setShow} />
-      <Section backgroundColor="#F4F4F4" textBody={AboutMe} icon="true" setShow={setShow} />
-      <Section backgroundColor="white" titleText="TECH" textBody={TechList} setShow={setShow} />
+      <MemoryGame showRodal={showRodal} setShowRodal={setShowRodal} />
+      <Section backgroundColor="#F4F4F4" textBody={<AboutMe setShowRodal={setShowRodal} />} icon="true" setShowRodal={setShowRodal} />
+      <Section backgroundColor="white" titleText="TECH" textBody={TechList} />
       <Section backgroundColor="#F4F4F4" titleText="FEATURED PROJECTS" />
       <Section backgroundColor="white" titleText="MY THOUGHTS" />
       <Section backgroundColor="#F4F4F4" titleText="SKILLS" />

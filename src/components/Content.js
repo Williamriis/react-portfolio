@@ -1,36 +1,40 @@
 import React from 'react'
+import styled, { keyframes } from 'styled-components'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faHandPointRight } from '@fortawesome/free-solid-svg-icons'
+
 export const MyProjects = [
     {
-        image: require('../projects-movies.jpg'),
-        title: 'MOVIE DATABASE',
+        image: require('../ChessAcademy.png'),
+        title: 'ONLINE CHESS',
+        description: 'Online Chess made with React, MongoDB and Web Sockets',
+        slug: 'ONLINE CHESS',
+        tech: ['React', 'JavaScript ES6', 'Node.js', 'MongoDB', 'Web Sockets'],
+        url: "https://chessacademy.netlify.app/"
+    },
+    {
+        image: require('../FilmSite.png'),
+        title: 'FILM DATABASE',
         description: 'Web app built in React using open film API',
         slug: 'FILM DATABASE.',
         tech: ['HTML5', 'CSS3', 'React', 'JavaScript ES6'],
         url: "https://angry-carson-9ce19e.netlify.app/"
     },
     {
-        image: require('../project-happythoughts.jpeg'),
+        image: require('../HappyThoughts.png'),
         title: 'MESSENGER APP',
-        description: 'Web app built in React using open film API',
+        description: 'Messenger App with Node.js and MongoDB',
         slug: 'MESSENGER APP',
-        tech: ['HTML5', 'CSS3', 'React', 'JavaScript ES6'],
+        tech: ['Node.js', 'MongoDB', 'React', 'JavaScript ES6'],
         url: "https://festive-heyrovsky-dd1229.netlify.app/"
     },
     {
-        image: require('../to-do-list.png'),
+        image: require('../ToDoApp.png'),
         title: 'TODO APP',
         description: "Todo list app utilising React and Redux",
         slug: 'TODO APP',
         tech: ["React", "Redux", "JavaScript ES6", "CSS3"],
         url: "https://affectionate-heyrovsky-4d7414.netlify.app/"
-    },
-    {
-        image: require('../projects-react-native-memory-app.jpg'),
-        title: 'MEMORY GAME',
-        description: 'Web app built in React using open film API',
-        slug: 'MEMORY GAME',
-        tech: ['HTML5', 'CSS3', 'React', 'JavaScript ES6'],
-        url: ""
     }
 
 ]
@@ -38,10 +42,10 @@ export const MyProjects = [
 export const OtherProjects = [
 
     {
-        slug: "MEMORY GAME",
-        description: 'Web app built in React using open film API',
-        tech: ['HTML5', 'CSS3', 'React Native', 'JavaScript ES6'],
-        url: ""
+        slug: "MESSENGER APP",
+        description: 'Messenger App with Node.js and MongoDB',
+        tech: ['Node.js', 'MongoDB', 'React', 'JavaScript ES6'],
+        url: "https://festive-heyrovsky-dd1229.netlify.app/"
     },
 
     {
@@ -49,6 +53,13 @@ export const OtherProjects = [
         description: "Todo list app utilising React and Redux",
         tech: ["React", "Redux", "JavaScript ES6", "CSS3"],
         url: "https://affectionate-heyrovsky-4d7414.netlify.app/"
+    },
+
+    {
+        slug: "MEMORY GAME",
+        description: 'Mobile app built in React Native',
+        tech: ['HTML5', 'CSS3', 'React Native', 'JavaScript ES6'],
+        url: "https://github.com/Williamriis/project-react-native-app"
     },
 
     {
@@ -120,20 +131,42 @@ export const MySkills = [
     }
 ]
 
-export const AboutMe = "Hello! I’m a creative frontend developer who loves working in JavaScript and React. I have a passion for making fun and interactive apps and websites."
+const ShowRodalButton = styled.button`
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  text-decoration: underline;
+  font: 20px/32px 'Montserrat';
+`
+const Point = keyframes`
+0% {left: -8px};
+50% {left: -3px};
+100% {left: -8px};
+`
+
+const Hand = styled.span`
+  color: red;
+  font-size: 24px;
+  position: relative;
+  left: -8px;
+  top: 23px;
+  animation: ${Point} .5s infinite ease-in;
+`
+
+const Icon = <FontAwesomeIcon className="hand" icon={faHandPointRight} />
+
+export const AboutMe = ({ setShowRodal }) => {
+
+
+    return (
+        <div style={{ display: 'flex', alignItems: 'flex-start' }}>
+            <Hand>{Icon}</Hand>
+            <p>Hello! I’m a creative frontend developer who loves working in JavaScript and React. I have a passion for making fun and interactive apps and websites. <ShowRodalButton onClick={() => setShowRodal(true)}>Here's</ShowRodalButton> a preview of something I made for mobile.</p>
+        </div>
+    )
+
+
+}
+
 export const TechList = "HTML, CSS, Flexbox, JavaScript, ES6, JSX, React, React Hooks, Redux, Node.js, Mongo DB, Web Accessibly, API:s, mob-programming, pair-programming, Github."
 
-const thing = < iframe
-    title="React native code"
-    src="https://snack.expo.io/@bardolph/lonely-croissant?platform=ios"
-    style={{
-        overflow: "hidden",
-        background: "#212743",
-        border: "1px solid rgba(0,0,0,.08)",
-        borderRadius: "4px",
-        height: "725px",
-        width: "60%",
-        margin: "auto",
-        marginTop: "20px",
-    }}
-></iframe >

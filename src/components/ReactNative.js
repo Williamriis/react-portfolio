@@ -1,37 +1,28 @@
 import React from 'react'
-import Modal from 'react-bootstrap/Modal'
+import Rodal from 'rodal'
+import 'rodal/lib/rodal.css';
 
-
-export const ReactNative = ({ show, setShow }) => {
-
-    const handleClose = () => {
-        setShow(false)
-    }
+export const MemoryGame = ({ showRodal, setShowRodal }) => {
 
     return (
+        <Rodal visible={showRodal} onClose={() => setShowRodal(false)} measure="%" width={70} height={100}>
 
-        <Modal
-            show={show}
-            onHide={handleClose}
-            size="lg"
-            aria-labelledby="contained-modal-title-vcenter"
-            centered
-            top={0}
-        >
-            <Modal.Header closeButton>
-                <Modal.Title >
-                    Modal heading
-          </Modal.Title>
-            </Modal.Header>
-            <Modal.Body>
-                <h4>Centered Modal</h4>
-                <p>
-                    Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
-                    dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac
-                    consectetur ac, vestibulum at eros.
-          </p>
-            </Modal.Body>
-        </Modal>
-
+            <iframe
+                title="React native code"
+                src="https://snack.expo.io/@bardolph/memorygame?platform=ios"
+                style={{
+                    overflow: "hidden",
+                    background: "#fafafa",
+                    border: "1px solid rgba(0,0,0,.08)",
+                    borderRadius: "4px",
+                    height: "725px",
+                    width: "100%",
+                    margin: "auto",
+                    marginTop: "20px",
+                }}
+            ></iframe>
+        </Rodal>
     )
 }
+
+
