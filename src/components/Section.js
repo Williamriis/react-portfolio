@@ -40,11 +40,11 @@ const TextBlock = styled.p`
 
 
 
-export const Section = ({ backgroundColor, titleText, textBody, icon, setShowRodal }) => {
+export const Section = ({ backgroundColor, titleText, textBody, anchor }) => {
 
   return (
     <Fade>
-      <SectionContainer backgroundColor={backgroundColor}>
+      <SectionContainer id={anchor} backgroundColor={backgroundColor}>
         {titleText && <Title color="white">{titleText}</Title>}
         {textBody && <TextBlock>{textBody}</TextBlock>}
         {titleText === "FEATURED PROJECTS" && <Projects />}

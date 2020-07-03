@@ -11,13 +11,13 @@ export const App = () => {
     <div>
       <Header />
       <MemoryGame showRodal={showRodal} setShowRodal={setShowRodal} />
-      <Section backgroundColor="#F4F4F4" textBody={<AboutMe setShowRodal={setShowRodal} />} icon="true" setShowRodal={setShowRodal} />
+      <Section backgroundColor="#F4F4F4" textBody={<AboutMe setShowRodal={setShowRodal} />} anchor="about-me" />
       <Section backgroundColor="white" titleText="TECH" textBody={TechList} />
-      <Section backgroundColor="#F4F4F4" titleText="FEATURED PROJECTS" />
-      <Section backgroundColor="white" titleText="MY THOUGHTS" />
-      <Section backgroundColor="#F4F4F4" titleText="SKILLS" />
+      <Section backgroundColor="#F4F4F4" titleText="FEATURED PROJECTS" anchor="projects" />
+      <Section backgroundColor="white" titleText="MY THOUGHTS" anchor="thoughts" />
+      <Section backgroundColor="#F4F4F4" titleText="SKILLS" anchor="skills" />
       <Section backgroundColor="white" titleText="FOR MORE" />
-      <Section backgroundColor="#133bce" />
+      <Section backgroundColor="#133bce" anchor="contact" />
     </div>
   )
 }

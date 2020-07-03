@@ -27,9 +27,6 @@ const HoverWrapper = styled.div`
   justify-content: center;
   margin-bottom: 20px;
   transition: all .3s ease-in-out;
-  &:hover {
-    transform: scale(.9);
-  }
 `
 const Image = styled.img`
   width: 100%;
